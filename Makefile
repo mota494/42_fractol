@@ -8,7 +8,7 @@ LIBFT = includes/libft/libft.a
 PRINTF = includes/ft_printf/libftprintf.a
 RM = rm -rf
 # >:3
-SRC = sources/main.c
+SRC = sources/main.c sources/draw.c sources/error_check.c
 OBJ = $(SRC:.c=.o)
 # <:3
 all: $(NAME)
