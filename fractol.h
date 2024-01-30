@@ -6,14 +6,14 @@
 /*   By: mloureir <mloureir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 12:46:31 by mloureir          #+#    #+#             */
-/*   Updated: 2024/01/23 16:53:52 by mloureir         ###   ########.fr       */
+/*   Updated: 2024/01/30 17:00:34 by mloureir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 #define FRACTOL_H
-#define X_SIZE 1024
-#define Y_SIZE 768
+#define X_SIZE 901
+#define Y_SIZE 901
 
 /***********************************************/
 /*					Include					   */
@@ -34,7 +34,7 @@ typedef struct s_winfo
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
-	void	*img;
+	char	*name;
 }			t_win_info;
 
 /***********************************************/

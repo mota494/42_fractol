@@ -6,7 +6,7 @@
 /*   By: mloureir <mloureir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 12:38:16 by mloureir          #+#    #+#             */
-/*   Updated: 2024/01/23 16:54:27 by mloureir         ###   ########.fr       */
+/*   Updated: 2024/01/30 17:35:38 by mloureir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	kill_window( t_win_info *wininfo)
 	mlx_destroy_window(wininfo->mlx_ptr, wininfo->win_ptr);
 	mlx_destroy_display(wininfo->mlx_ptr);
 	free(wininfo->mlx_ptr);
+	free(wininfo->name);
 	exit(0);
 }
 int handle_input(int keysym, t_win_info *wininfo)
@@ -47,7 +48,6 @@ void	setup_hook(t_win_info *wininfo)
 {
 	mlx_hook(wininfo->win_ptr, KeyPress, KeyPressMask, &handle_input, wininfo);
 	mlx_hook(wininfo->win_ptr, 17, 0, &kill_window, wininfo);
-//	mlx_loop_hook(wininfo->mlx_ptr, &render, wininfo);
 	mlx_loop(wininfo->mlx_ptr);
 }
 
@@ -60,6 +60,8 @@ int main(int argc, char **argv)
 		ft_printf("ERROR!");
 		return (0);
 	}
+	wininfo.name = malloc(1);
+	wininfo.name = alocpy(wininfo.name, argv[1]);
 	if(win_init(&wininfo, argv[1]) == 0)
 		return (0);
 	setup_hook(&wininfo);
