@@ -6,10 +6,14 @@ BSRC = ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c ft_lstite
 RM = rm -rf
 OBJS=$(SRC:.c=.o)
 BOBJS=$(BSRC:.c=.o)
+COLOR	= $(shell tput setaf 106)
+D 		= $(shell tput sgr0)
 
-all: $(NAME)
+
+all: $(NAME) newline
 
 %.o : %.c
+	echo -n "$(COLOR)█$(D)";
 	$(CC) $(FLAGS) -c $*.c -o $*.o
 
 $(NAME): $(OBJS)
@@ -22,6 +26,9 @@ fclean:
 	$(RM) $(OBJS) $(BOBJS) libft.a
 
 re: fclean all
+
+newline:
+	echo "\n"
 
 bonus: $(OBJS) $(BOBJS)
 	ar rc $(NAME) $(OBJS) $(BOBJS)
