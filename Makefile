@@ -1,49 +1,36 @@
 NAME = fractol
-SRCS = sources/main.c sources/draw.c sources/error_check.c
-HEADER = fractol.h
-LIBFTDIR = includes/libft/libft.a
-MINILIBX = mlx/libmlx_Linux.a
-MINILIBX_DIR = mlx/
-MLXFLAGS = -lX11 -lXext
+# :3
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
-COMPILER = $(CC) $(CFLAGS)
-RM = rm -f
-OBJS = $(SRCS:.c=.o)
-
+FLAGS =  -Wall -Wextra -Werror
+MLXFLAGS = -L/usr/X11R6/lib -lX11 -lXext -lm
+MLX = mlx/libmlx_Linux.a
+LIBFT = includes/libft/libft.a
+PRINTF = includes/ft_printf/libftprintf.a
+RM = rm -rf
+# >:3
+SRC = sources/main.c
+SRC = sources/main.c sources/draw.c sources/error_check.c
+OBJ = $(SRC:.c=.o)
+# <:3
 all: $(NAME)
-
-$(NAME): $(OBJS) $(LIBFTDIR) $(MINILIBX_DIR) $(MINILIBX)
-	@echo "Complied chief"
-	$(COMPILER) $(OBJS) $(LIBFTDIR) -I includes/LIBFT $(MLXFLAGS) -o $(NAME) $(MINILIBX) -L/usr/X11R6/lib -lX11 -lXext -lm
-
-$(LIBFTDIR): 
-	$(MAKE) -C includes/LIBFT
-
-$(MINILIBX): $(MINILIBX_DIR)
-	$(MAKE) -C $(MINILIBX_DIR)
-
-$(MINILIBX_DIR):
-	wget https://cdn.intra.42.fr/document/document/21300/minilibx-linux.tgz -O minilibx
-	tar -xzvf minilibx
-	rm minilibx
-
-%.o: %.c $(HEADER)
-	$(COMPILER) -I includes/LIBFT -c $< -o $@
-
+$(NAME) : checker $(OBJ) $(LIBFT) $(PRINTF) $(MLX)
+	$(CC) $(FLAGS) $(MLXFLAGS) $(SRC) -o $(NAME) $(LIBFT) $(PRINTF) $(MLX) $(MLXFLAGS)
+$(LIBFT):
+	make -C includes/libft
+$(PRINTF):
+	make -C includes/ft_printf
+$(MLX):
+	make -C mlx
+checker:
+	if [ -d "mlx" ]; then echo "mlx folder found"; else make download; fi
+download:
+	git clone git@github.com:42Paris/minilibx-linux.git mlx
 clean:
-	@echo "Deleted chief"
-	$(RM) $(OBJS)
-	$(MAKE) -C includes/LIBFT clean
-	$(MAKE) -C $(MINILIBX_DIR) clean
-
+	$(RM) $(OBJ)
+	make -C includes/ft_printf clean
+	make -C includes/libft clean
 fclean: clean
-	@echo "Deleted Everything chief"
-	$(RM) $(NAME)
-	$(MAKE) -C includes/LIBFT fclean
-	$(MAKE) -C $(MINILIBX_DIR) clean
-
-re: fclean all
-
-.PHONY: all clean fclean re
-# .SILENT:
+	$(RM) $(NAME) mlx
+	make -C includes/ft_printf fclean
+	make -C includes/libft fclean
+re: fclean download all
