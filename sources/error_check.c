@@ -6,7 +6,7 @@
 /*   By: mloureir <mloureir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:13:55 by mloureir          #+#    #+#             */
-/*   Updated: 2024/01/23 16:53:26 by mloureir         ###   ########.fr       */
+/*   Updated: 2024/01/31 10:13:35 by mloureir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ int	checkstr(char *str)
 	int	i;
 
 	i = 0;
-	while(str[i] != '\0')
+	while (str[i] != '\0')
 	{
-		if(str[i] < 65 || str[i] > 90)
+		if (str[i] < 65 || str[i] > 90)
 			return (0);
 		i++;
 	}
@@ -48,7 +48,7 @@ int	mapchecker(char *str)
 	return (0);
 }
 
-int 	error_main(int argc, char **argv)
+int	error_main(int argc, char **argv)
 {
 	if (argc != 2)
 		return (0);

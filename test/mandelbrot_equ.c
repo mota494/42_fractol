@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_alocpy.c                                        :+:      :+:    :+:   */
+/*   mandelbrot_equ.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mloureir <mloureir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/30 17:05:01 by mloureir          #+#    #+#             */
-/*   Updated: 2024/01/31 10:02:21 by mloureir         ###   ########.fr       */
+/*   Created: 2024/01/31 11:19:12 by mloureir          #+#    #+#             */
+/*   Updated: 2024/01/31 16:49:42 by mloureir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdio.h>
+#include "mandelbrot_equ.h"
 
-char	*alocpy(char *dest, char *src)
+int main()
 {
-	size_t 	len;
-	size_t	i;
-	char *newstr;
-
-	i = 0;
-	free(dest);
-	len = ft_strlen(src);
-	newstr = malloc(len + 1);
-	while(i < len)
+	fractals test;
+	int i = 0;
+	double xtemp;
+	const double c = 0.25;
+	const double y = 0.3;
+	test.c_x = 0;
+	test.c_y = 0;
+	test.z_old = 0;
+	test.z_new = 0;
+	printf("%f", 3 + y);
+	while(1)
 	{
-		newstr[i] = src[i];
+		xtemp = test.c_x * test.c_x + c;
+		test.c_y = 2 * (test.c_x * test.c_y) + y;
+		test.c_x = xtemp;
+		printf("(%.3f,%.2f)\n", test.c_x,test.c_y);
 		i++;
 	}
-	newstr[i] = '\0';
-	return (newstr);
+	return (0);
 }

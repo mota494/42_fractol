@@ -6,7 +6,7 @@
 /*   By: mloureir <mloureir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 12:27:43 by mloureir          #+#    #+#             */
-/*   Updated: 2024/01/30 17:35:51 by mloureir         ###   ########.fr       */
+/*   Updated: 2024/01/31 10:34:53 by mloureir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-char 	*alocpy(char *dest, char *src); //allocates dest and copies the contents from src to it
-int		ft_isalpha(int c); //checks if the char received is an alpha
-int		ft_isdigit(int c); // checks if the char received is a digit
-int		ft_isalnum(int c); // checks if a char is alphanumeric
-int		ft_isascii(int c); // checks if the char is from the ascii
-int		ft_isprint(int c); // checks if the char received is printable
-size_t	ft_strlen(const char *s); //returns the size of the string received
+char 	*alocpy(char *dest, char *src);
+int		ft_isalpha(int c);
+int		ft_isdigit(int c);
+int		ft_isalnum(int c);
+int		ft_isascii(int c);
+int		ft_isprint(int c);
+size_t	ft_strlen(const char *s);
 void	*ft_memset(void *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);

@@ -8,7 +8,7 @@ MLX = mlx/libmlx_Linux.a
 LIBFT = includes/libft/libft.a
 PRINTF = includes/ft_printf/libftprintf.a
 SRC = sources/main.c
-SRC = sources/main.c sources/draw.c sources/error_check.c
+SRC = sources/main.c sources/draw.c sources/error_check.c sources/fractals.c
 # Commands
 RM = rm -rf
 OBJ = $(SRC:.c=.o)
@@ -19,28 +19,28 @@ D 		= $(shell tput sgr0)
 all: checker $(NAME)
 
 %.o : %.c
-	echo -n "$(COLOR)█$(D)"
+	@echo -n "$(COLOR)█$(D)"
 	$(CC) $(FLAGS) -c $*.c -o $*.o
 
 $(NAME) : start $(OBJ) newline $(LIBFT) $(PRINTF) $(MLX)
 	$(CC) $(FLAGS) $(MLXFLAGS) -o $(NAME) $(OBJ) $(LIBFT) $(PRINTF) $(MLX) $(MLXFLAGS)
 
 $(LIBFT):
-	echo -n "[Compiling LIBFT]:"
+	@echo -n "[Compiling LIBFT]:"
 	make -C includes/libft
 
 $(PRINTF):
-	echo -n "[Compiling PRINTF]:"
+	@echo -n "[Compiling PRINTF]:"
 	make -C includes/ft_printf
 
 $(MLX):
 	make -C mlx
 
 start:
-		echo -n "[Compiling FRACT-OL]:"
+		@echo -n "[Compiling FRACT-OL]:" > a.txt && rm -f a.txt
 
 checker:
-	if [ -d "mlx" ]; then echo "[MLX FOLDER FOUND]"; else make download; fi
+	@if [ -d "mlx" ]; then echo "[MLX FOLDER FOUND]"; else make download; fi
 
 download:
 	git clone git@github.com:42Paris/minilibx-linux.git mlx
@@ -64,6 +64,6 @@ fclean: clean
 re: fclean all
 
 newline:
-	echo "\n"
+	@echo "\n"
 
 .SILENT:

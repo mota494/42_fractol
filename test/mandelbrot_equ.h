@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_alocpy.c                                        :+:      :+:    :+:   */
+/*   mandelbrot_equ.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mloureir <mloureir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/30 17:05:01 by mloureir          #+#    #+#             */
-/*   Updated: 2024/01/31 10:02:21 by mloureir         ###   ########.fr       */
+/*   Created: 2024/01/31 11:21:34 by mloureir          #+#    #+#             */
+/*   Updated: 2024/01/31 14:52:00 by mloureir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdio.h>
+#ifndef MANDELBROT_EQU_H
+#define MANDELBROT_EQU_H
 
-char	*alocpy(char *dest, char *src)
+# include <stdio.h>
+# include <stdlib.h>
+# include <math.h>
+#define MAX_ITER 8000000
+
+typedef struct fractal
 {
-	size_t 	len;
-	size_t	i;
-	char *newstr;
+	double c_x;
+	double c_y;
+	double z_old;
+	double z_new;
+	double x_real;
+	double y_imagi;
+}	fractals;
 
-	i = 0;
-	free(dest);
-	len = ft_strlen(src);
-	newstr = malloc(len + 1);
-	while(i < len)
-	{
-		newstr[i] = src[i];
-		i++;
-	}
-	newstr[i] = '\0';
-	return (newstr);
-}
+#endif
