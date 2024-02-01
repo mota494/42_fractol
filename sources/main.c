@@ -6,7 +6,7 @@
 /*   By: mloureir <mloureir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 12:38:16 by mloureir          #+#    #+#             */
-/*   Updated: 2024/01/31 12:00:28 by mloureir         ###   ########.fr       */
+/*   Updated: 2024/02/01 16:10:50 by mloureir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	setup_hook(t_win_info *wininfo)
 {
 	mlx_hook(wininfo->win_ptr, KeyPress, KeyPressMask, &handle_input, wininfo);
 	mlx_hook(wininfo->win_ptr, 17, 0, &kill_window, wininfo);
-	mlx_loop_hook(wininfo->mlx_ptr, &maps_select, wininfo);
+	maps_select(wininfo);
 	mlx_loop(wininfo->mlx_ptr);
 }
 

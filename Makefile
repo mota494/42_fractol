@@ -37,7 +37,7 @@ $(MLX):
 	make -C mlx
 
 start:
-		@echo -n "[Compiling FRACT-OL]:" > a.txt && rm -f a.txt
+		@echo -n "[Compiling FRACT-OL]:"
 
 checker:
 	@if [ -d "mlx" ]; then echo "[MLX FOLDER FOUND]"; else make download; fi
