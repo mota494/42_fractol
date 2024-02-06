@@ -12,8 +12,8 @@
 
 #ifndef FRACTOL_H
 #define FRACTOL_H
-#define X 901
-#define Y 901
+#define X 900
+#define Y 900
 
 /***********************************************/
 /*					Include					   */
@@ -33,20 +33,20 @@
 
 typedef struct fractal
 {
-	double c_x;
-	double c_y;
-	double z_old;
-	double z_new;
-	double x_real;
-	double y_imagi;
+	double	x;
+	double	y;
+	double	xtemp;
+	double	offset_x;
+	double	offset_y;
 }	fractals;
 
 
 typedef struct s_winfo
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
-	char	*name;
+	void		*mlx_ptr;
+	void		*win_ptr;
+	char		*name;
+	fractals	value;
 }			t_win_info;
 
 /***********************************************/
@@ -67,5 +67,6 @@ int		checkstr(char *str);
 int		maps_select(t_win_info *wininfo);
 void	mp_julia(t_win_info *wininfo);
 void	mp_mandelbrot(t_win_info *wininfo);
-
+/*utils.c*/
+double	sum(double num1, double num2);
 #endif

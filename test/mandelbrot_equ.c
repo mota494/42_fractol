@@ -19,16 +19,16 @@ int main()
 	int i = 0;
 	long double xtemp;
 	const long double c = -2;
-	const long double y = 0.3;
+	const long double y = 0;
 	test.c_x = -2;
-	test.c_y = 0.3;
+	test.c_y = 0;
 	test.z_old = 0;
 	test.z_new = 0;
 	while(i < 20) {
 		xtemp = (test.c_x * test.c_x) - (test.c_y * test.c_y) + c;
 		test.c_y = (2 * test.c_x * test.c_y) + y;
 		test.c_x = xtemp;
-		printf("(%Lf       ,            %Lf)\n", test.c_x,test.c_y);
+		printf("(%Lf,%Lf)\n", test.c_x,test.c_y);
 		i++;
 	}
 	return (0);
