@@ -13,9 +13,28 @@
 #include "mandelbrot_equ.h"
 #include <math.h>
 
+double	power(double num, double exponent)
+{
+	double	toret;
+	double	new_toret;
+	double	i;
+
+	toret = num;
+	while(i < exponent)
+	{
+		toret = toret * num;
+		i++;
+	}
+	return (toret);
+}
+
 int main()
 {
-	fractals test;
+	double i;
+
+	i = 2;
+	printf("%f", power(i, 3));
+/*	 fractals test;
 	int i = 0;
 	long double xtemp;
 	const long double c = -2;
@@ -31,5 +50,5 @@ int main()
 		printf("(%Lf,%Lf)\n", test.c_x,test.c_y);
 		i++;
 	}
-	return (0);
+	return (0);*/
 }

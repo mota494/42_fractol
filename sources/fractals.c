@@ -1,23 +1,49 @@
 #include "../fractol.h"
 
+void	mandelbrot_set(t_win_info *wininfo, int color)
+{
+	int	x;
+	int	y;
+
+	x = wininfo->img.c_x + wininfo->img.of_x;
+	y = wininfo->img.c_y + wininfo->img.of_y;
+	mlx_pixel_put(wininfo->mlx_ptr, wininfo->win_ptr, x, y, color);
+	while(wininfo->img.c_x < X)
+	{
+		while(wininfo->img.c_y < Y)
+		{
+			map_mandelbrot(wininfo);
+			wininfo->img.c_y++;
+		}
+		wininfo->img.c_x++;
+		wininfo->img.c_y = 0;
+	}
+}
+
 void	map_mandelbrot(t_win_info *wininfo)
 {
-	double	start_x;
-	double	start_y;
-	double	xtemp;
+	double	i;
+	double	x_temp;
 
-	start_x = 1;
-	start_y = 3;
-	wininfo->value.x = 0;
-	wininfo->value.y = 0;
-	ft_printf("(%d, %d)", wininfo->value.x, wininfo->value.y);
-	while (sum(wininfo->value.x, wininfo->value.y) < __DBL_MAX__)
+	i = 0;
+	var_init(wininfo);
+	while (i < wininfo->img.max_iter)
 	{
-		xtemp = (wininfo->value.x * wininfo->value.x) - (wininfo->value.y * wininfo->value.y) + start_x;
-		wininfo->value.y = (2 * wininfo->value.x * wininfo->value.y) + start_y;
-		wininfo->value.x = xtemp;
-		ft_printf("(%d , %d) \n", wininfo->value.x + 450, wininfo->value.y + 450);
-		mlx_pixel_put(wininfo->mlx_ptr, wininfo->win_ptr, wininfo->value.x + 450, wininfo->value.y + 450, color(0,255,0,0));
+		x_temp = power(wininfo->img.x, 2) - power(wininfo->img.y, 2);
+		x_temp += wininfo->img.c_x;
+		wininfo->img.y =  2 * wininfo->img.x * wininfo->img.y;
+		wininfo->img.y += wininfo->img.c_y;
+		wininfo->img.x = x_temp;
+		if (power(wininfo->img.x, 2) + power(wininfo->img.y, 2) > __DBL_MAX__)
+			break;
+		i++;
+	}
+	if (i == wininfo->img.max_iter)
+		mandelbrot_set(wininfo, color(0,0,0,0));
+	else
+	{
+		x_temp = wininfo->img.c_x;
+		mandelbrot_set(wininfo, color(0,x_temp,x_temp,x_temp));
 	}
 }
 

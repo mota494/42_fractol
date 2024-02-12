@@ -24,6 +24,7 @@
 # include "mlx/mlx.h"
 # include "mlx/mlx_int.h"
 # include <math.h>
+# include <limits.h>
 #include <X11/keysym.h>
 #include <X11/X.h>
 
@@ -33,11 +34,14 @@
 
 typedef struct fractal
 {
+	double	c_x;
+	double	c_y;
 	double	x;
 	double	y;
 	double	xtemp;
-	double	offset_x;
-	double	offset_y;
+	double	of_x;
+	double	of_y;
+	double	max_iter;
 }	fractals;
 
 
@@ -46,7 +50,7 @@ typedef struct s_winfo
 	void		*mlx_ptr;
 	void		*win_ptr;
 	char		*name;
-	fractals	value;
+	fractals	img;
 }			t_win_info;
 
 /***********************************************/
@@ -65,8 +69,11 @@ int 	error_main(int argc, char **argv);
 int		checkstr(char *str);
 /*fractals.c*/
 int		maps_select(t_win_info *wininfo);
-void	mp_julia(t_win_info *wininfo);
-void	mp_mandelbrot(t_win_info *wininfo);
+void	map_mandelbrot(t_win_info *wininfo);
+void	mandelbrot_set(t_win_info *wininfo, int color);
 /*utils.c*/
+void	var_init(t_win_info *wininfo);
 double	sum(double num1, double num2);
+double	power(double num, double exponent);
+double	dl_abs(double num);
 #endif
