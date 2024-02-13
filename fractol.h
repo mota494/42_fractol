@@ -70,7 +70,7 @@ int		checkstr(char *str);
 /*fractals.c*/
 int		maps_select(t_win_info *wininfo);
 void	map_mandelbrot(t_win_info *wininfo);
-void	mandelbrot_set(t_win_info *wininfo, int color);
+void	mandelbrot_set(t_win_info *wininfo);
 /*utils.c*/
 void	var_init(t_win_info *wininfo);
 double	sum(double num1, double num2);

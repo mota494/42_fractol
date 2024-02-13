@@ -1,25 +1,43 @@
-#include "../fractol.h"
-#include <stdio.h>
+#include "../fractol.h" 
 
-void	mandelbrot_set(t_win_info *wininfo, int color)
+void	map_mandelbrot(t_win_info *wininfo)
 {
 	int	x;
 	int	y;
 
-	x = wininfo->img.c_x + wininfo->img.of_x;
-	y = wininfo->img.c_y + wininfo->img.of_y;
-	mlx_pixel_put(wininfo->mlx_ptr, wininfo->win_ptr, x, y, color);
+	x = wininfo->img.c_x;
+	y = wininfo->img.c_y;
 	while(wininfo->img.c_x < X)
 	{
 		while(wininfo->img.c_y < Y)
 		{
-			map_mandelbrot(wininfo);
 			wininfo->img.c_y++;
+			mandelbrot_set(wininfo);
+			y++;
 		}
 		wininfo->img.c_x++;
 		wininfo->img.c_y = 0;
-	}
+	}	
 }
+
+int	maps_select(t_win_info *wininfo)
+{
+	if (ft_strcmp("MANDELBROT", wininfo->name) == 1)
+		map_mandelbrot(wininfo);
+	return (0);
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 void	map_mandelbrot(t_win_info *wininfo)
 {
@@ -47,11 +65,23 @@ void	map_mandelbrot(t_win_info *wininfo)
 	}
 }
 
-int	maps_select(t_win_info *wininfo)
+
+void	mandelbrot_set(t_win_info *wininfo)
 {
-	if (ft_strcmp("MANDELBROT", wininfo->name) == 1)
-		map_mandelbrot(wininfo);
-	return (0);
+	int	x;
+	int	y;
+
+	x = wininfo->img.c_x + wininfo->img.of_x;
+	y = wininfo->img.c_y + wininfo->img.of_y;
+	mlx_pixel_put(wininfo->mlx_ptr, wininfo->win_ptr, x, y, color);
+	while(wininfo->img.c_x < X)
+	{
+		while(wininfo->img.c_y < Y)
+		{
+			map_mandelbrot(wininfo);
+			wininfo->img.c_y++;
+		}
+		wininfo->img.c_x++;
+		wininfo->img.c_y = 0;
+	}
 }
-
-
