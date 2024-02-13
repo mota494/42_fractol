@@ -13,7 +13,7 @@ void	var_init(t_win_info *wininfo)
 	wininfo->img.c_y = 0;
 	wininfo->img.of_x = 450;
 	wininfo->img.of_y = 450;
-	wininfo->img.max_iter = 42;
+	wininfo->img.max_iter = 10;
 }
 
 double	power(double num, double exponent)
