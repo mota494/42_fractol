@@ -21,6 +21,7 @@ double	power(double num, double exponent)
 	double	toret;
 	double	i;
 
+	i = 1;
 	toret = num;
 	while(i < exponent)
 	{

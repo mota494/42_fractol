@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../fractol.h"
+#include <stdlib.h>
 
 int	kill_window(t_win_info *wininfo)
 {
@@ -66,6 +67,7 @@ int	main(int argc, char **argv)
 	wininfo.name = alocpy(wininfo.name, argv[1]);
 	if (win_init(&wininfo) == 0)
 		return (0);
+	var_init(&wininfo);
 	setup_hook(&wininfo);
 	return (0);
 }

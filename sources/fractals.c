@@ -1,4 +1,5 @@
 #include "../fractol.h"
+#include <stdio.h>
 
 void	mandelbrot_set(t_win_info *wininfo, int color)
 {
@@ -26,7 +27,6 @@ void	map_mandelbrot(t_win_info *wininfo)
 	double	x_temp;
 
 	i = 0;
-	var_init(wininfo);
 	while (i < wininfo->img.max_iter)
 	{
 		x_temp = power(wininfo->img.x, 2) - power(wininfo->img.y, 2);
