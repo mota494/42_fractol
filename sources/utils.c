@@ -11,11 +11,9 @@ void	var_init(t_win_info *wininfo)
     wininfo->win_ptr = NULL;
     wininfo->img.img_ptr = NULL;
     wininfo->img.pix_ptr = NULL;
-	wininfo->x = 0;
-	wininfo->y = 0;
 	wininfo->c_x = 0;
 	wininfo->c_y = 0;
-	wininfo->of_x = 450;
-	wininfo->of_y = 450;
+    wininfo->x = 0;
+    wininfo->y = 0;
 	wininfo->max_iter = 10;
 }

@@ -45,10 +45,10 @@ int	win_init(t_win_info *wininfo)
 		return (0);
 	}
     wininfo->img.img_ptr = mlx_new_image(wininfo->mlx_ptr, X, Y);
-//    wininfo->img.pix_ptr = mlx_get_data_addr(wininfo->img.img_ptr,
-//                                             &wininfo->img.bpp,
-//                                             &wininfo->img.line_len,
-//                                             &wininfo->img.endian);
+    wininfo->img.pix_ptr = mlx_get_data_addr(wininfo->img.img_ptr,
+                                             &wininfo->img.bpp,
+                                             &wininfo->img.line_len,
+                                             &wininfo->img.endian);
 	return (1);
 }
 
