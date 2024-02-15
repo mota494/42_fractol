@@ -18,6 +18,7 @@ int	kill_window(t_win_info *wininfo)
 	mlx_destroy_window(wininfo->mlx_ptr, wininfo->win_ptr);
 	mlx_destroy_display(wininfo->mlx_ptr);
 	free(wininfo->mlx_ptr);
+	free(wininfo->img_ptr);
 	free(wininfo->name);
 	exit(0);
 }
@@ -37,6 +38,7 @@ int	win_init(t_win_info *wininfo)
 		mlx_destroy_display(wininfo->mlx_ptr);
 		return (0);
 	}
+	wininfo->img_ptr = mlx_new_image(wininfo->mlx_ptr, X, Y);
 	wininfo->win_ptr = mlx_new_window(wininfo->mlx_ptr, X, Y, wininfo->name);
 	if (wininfo->win_ptr == NULL)
 	{

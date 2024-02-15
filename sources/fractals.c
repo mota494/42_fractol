@@ -2,15 +2,15 @@
 
 void	map_mandelbrot(t_win_info *wininfo)
 {
-	while(wininfo->img.c_x < X)
+	while(wininfo->c_x < X)
 	{
-		while(wininfo->img.c_y < Y)
+		while(wininfo->c_y < Y)
 		{
 			mandelbrot_set(wininfo);
-			wininfo->img.c_y = 0;
+			wininfo->c_y = 0;
 		}
-		wininfo->img.c_x++;
-		wininfo->img.c_y = 0;
+		wininfo->c_x++;
+		wininfo->c_y = 0;
 	}	
 }
 
@@ -20,27 +20,27 @@ void	mandelbrot_set(t_win_info *wininfo)
 	double	x_temp;
 
 	i = 0;
-	while (i < wininfo->img.max_iter)
+	while (i < wininfo->max_iter)
 	{
-		x_temp = power(wininfo->img.x, 2) - power(wininfo->img.y, 2);
-		x_temp += wininfo->img.c_x;
-		wininfo->img.y =  2 * wininfo->img.x * wininfo->img.y;
-		wininfo->img.y += wininfo->img.c_y;
-		wininfo->img.x = x_temp;
-		if (power(wininfo->img.x, 2) + power(wininfo->img.y, 2) > __DBL_MAX__)
+		x_temp = power(wininfo->x, 2) - power(wininfo->y, 2);
+		x_temp += wininfo->c_x;
+		wininfo->y =  2 * wininfo->x * wininfo->y;
+		wininfo->y += wininfo->c_y;
+		wininfo->x = x_temp;
+		if (power(wininfo->x, 2) + power(wininfo->y, 2) > __DBL_MAX__)
 			break;
 		i++;
 	}
-	if (i == wininfo->img.max_iter)
+	if (i == wininfo->max_iter)
 	{	
 		mlx_pixel_put(wininfo->mlx_ptr, wininfo->win_ptr, 
-		wininfo->img.c_x, wininfo->img.c_y, color(0,0,0,0));
+		wininfo->c_x, wininfo->c_y, color(0,0,0,0));
 	}
 	else
 	{
-		x_temp = wininfo->img.c_x;
+		x_temp = wininfo->c_x;
 		mlx_pixel_put(wininfo->mlx_ptr, wininfo->win_ptr,
-		wininfo->img.c_x, wininfo->img.c_y, color(0, 255, 0, 0));
+		wininfo->c_x, wininfo->c_y, color(0, 255, 0, 0));
 	}
 }
 

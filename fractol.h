@@ -32,25 +32,19 @@
 /*					Structs					   */
 /***********************************************/
 
-typedef struct fractal
-{
-	double	c_x;
-	double	c_y;
-	double	x;
-	double	y;
-	double	xtemp;
-	double	of_x;
-	double	of_y;
-	double	max_iter;
-}	fractals;
-
-
 typedef struct s_winfo
 {
 	void		*mlx_ptr;
 	void		*win_ptr;
+	void		*img_ptr;
 	char		*name;
-	fractals	img;
+	double		c_x;
+	double		c_y;
+	double		x;
+	double		y;
+	double		of_x;	
+	double		of_y;
+	double		max_iter;
 }			t_win_info;
 
 /***********************************************/

@@ -10,45 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mandelbrot_equ.h"
-#include <math.h>
+#include "../fractol.h"
 
-double	power(double num, double exponent)
+typedef struct img
 {
-	double	toret;
-	double	new_toret;
-	double	i;
-
-	toret = num;
-	while(i < exponent)
-	{
-		toret = toret * num;
-		i++;
-	}
-	return (toret);
-}
+	char	*addr;
+	int	bbp;
+	int	line_l;
+	int	endian;
+}	t_img_info;
 
 int main()
 {
-	double i;
+	t_win_info wininfo;
+	t_img_info imginfo;
 
-	i = 2;
-	printf("%f", power(i, 3));
-/*	 fractals test;
-	int i = 0;
-	long double xtemp;
-	const long double c = -2;
-	const long double y = 0;
-	test.c_x = -2;
-	test.c_y = 0;
-	test.z_old = 0;
-	test.z_new = 0;
-	while(i < 20) {
-		xtemp = (test.c_x * test.c_x) - (test.c_y * test.c_y) + c;
-		test.c_y = (2 * test.c_x * test.c_y) + y;
-		test.c_x = xtemp;
-		printf("(%Lf,%Lf)\n", test.c_x,test.c_y);
-		i++;
-	}
-	return (0);*/
+	wininfo.mlx_ptr = mlx_init();
+	wininfo.img_ptr = mlx_new_image(wininfo.win_ptr, X, Y);
+	imginfo.addr = mlx_get_data_addr(wininfo.img_ptr, &imginfo.bbp, 
+	&imginfo.line_l, &imginfo.endian); 
+	
+	free(wininfo.mlx_ptr);
+	return (0);
 }
