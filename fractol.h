@@ -32,19 +32,33 @@
 /*					Structs					   */
 /***********************************************/
 
+typedef	struct s_imginfo
+{
+
+	void	*img_ptr;
+	char	*pix_ptr;
+	int     bpp;
+	int     endian;
+	int     line_len;
+
+}		t_imginfo;
+
 typedef struct s_winfo
 {
+    //MLX
 	void		*mlx_ptr;
 	void		*win_ptr;
-	void		*img_ptr;
 	char		*name;
-	double		c_x;
-	double		c_y;
+    //Fractals
+	int         c_x;
+	int 		c_y;
 	double		x;
 	double		y;
-	double		of_x;	
-	double		of_y;
+	int         of_x;
+	int 		of_y;
 	double		max_iter;
+    //IMG
+	t_imginfo	img;
 }			t_win_info;
 
 /***********************************************/
@@ -58,16 +72,12 @@ int		kill_window( t_win_info *wininfo);
 void	setup_hook(t_win_info *wininfo);
 /*draw.c*/
 int		color(int t, int r, int g, int b);
+void    fs_pixel_put(t_win_info *wininfo, int x, int y, int color);
 /*error_check.c*/
 int 	error_main(int argc, char **argv);
 int		checkstr(char *str);
 /*fractals.c*/
 int		maps_select(t_win_info *wininfo);
-void	map_mandelbrot(t_win_info *wininfo);
-void	mandelbrot_set(t_win_info *wininfo);
 /*utils.c*/
-void	var_init(t_win_info *wininfo);
-double	sum(double num1, double num2);
-double	power(double num, double exponent);
-double	dl_abs(double num);
+void        var_init(t_win_info *wininfo);
 #endif

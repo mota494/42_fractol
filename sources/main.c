@@ -11,16 +11,16 @@
 /* ************************************************************************** */
 
 #include "../fractol.h"
-#include <stdlib.h>
 
 int	kill_window(t_win_info *wininfo)
 {
+    mlx_destroy_image(wininfo->mlx_ptr, wininfo->img.img_ptr);
 	mlx_destroy_window(wininfo->mlx_ptr, wininfo->win_ptr);
 	mlx_destroy_display(wininfo->mlx_ptr);
 	free(wininfo->mlx_ptr);
-	free(wininfo->img_ptr);
 	free(wininfo->name);
 	exit(0);
+    return (0);
 }
 
 int	handle_input(int keysym, t_win_info *wininfo)
@@ -38,13 +38,17 @@ int	win_init(t_win_info *wininfo)
 		mlx_destroy_display(wininfo->mlx_ptr);
 		return (0);
 	}
-	wininfo->img_ptr = mlx_new_image(wininfo->mlx_ptr, X, Y);
 	wininfo->win_ptr = mlx_new_window(wininfo->mlx_ptr, X, Y, wininfo->name);
 	if (wininfo->win_ptr == NULL)
 	{
 		free(wininfo->mlx_ptr);
 		return (0);
 	}
+    wininfo->img.img_ptr = mlx_new_image(wininfo->mlx_ptr, X, Y);
+//    wininfo->img.pix_ptr = mlx_get_data_addr(wininfo->img.img_ptr,
+//                                             &wininfo->img.bpp,
+//                                             &wininfo->img.line_len,
+//                                             &wininfo->img.endian);
 	return (1);
 }
 
@@ -67,9 +71,9 @@ int	main(int argc, char **argv)
 	}
 	wininfo.name = malloc(1);
 	wininfo.name = alocpy(wininfo.name, argv[1]);
+    var_init(&wininfo);
 	if (win_init(&wininfo) == 0)
 		return (0);
-	var_init(&wininfo);
 	setup_hook(&wininfo);
 	return (0);
 }
