@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mloureir <mloureir@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/02 14:03:17 by mloureir          #+#    #+#             */
+/*   Updated: 2024/05/02 14:35:58 by mloureir         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../fractol.h"
 
 long double	sum(double num1, double num2)
@@ -15,5 +27,5 @@ void	var_init(t_win_info *wininfo)
 	wininfo->c_y = 0;
     wininfo->x = 0;
     wininfo->y = 0;
-	wininfo->max_iter = 10;
+	wininfo->max_iter = 120;
 }
