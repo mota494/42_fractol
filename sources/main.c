@@ -44,8 +44,8 @@ int	win_init(t_win_info *wininfo)
 		free(wininfo->mlx_ptr);
 		return (0);
 	}
-    wininfo->img.img_ptr = mlx_new_image(wininfo->mlx_ptr, X, Y);
-    wininfo->img.pix_ptr = mlx_get_data_addr(wininfo->img.img_ptr,
+	wininfo->img.img_ptr = mlx_new_image(wininfo->mlx_ptr, X, Y);
+	wininfo->img.pix_ptr = mlx_get_data_addr(wininfo->img.img_ptr,
                                              &wininfo->img.bpp,
                                              &wininfo->img.line_len,
                                              &wininfo->img.endian);
@@ -64,14 +64,10 @@ int	main(int argc, char **argv)
 {
 	t_win_info	wininfo;
 
-	if ((error_main(argc, argv)) == 0)
-	{
-		ft_printf("ERROR!");
-		return (0);
-	}
-	wininfo.name = malloc(1);
+	wininfo.name = ft_calloc(1, 1);
+	flag_check(argc, argv, &wininfo);
 	wininfo.name = alocpy(wininfo.name, argv[1]);
-    var_init(&wininfo);
+	var_init(&wininfo);
 	if (win_init(&wininfo) == 0)
 		return (0);
 	setup_hook(&wininfo);

@@ -12,17 +12,11 @@
 
 #include "../fractol.h"
 
-void	strup(char *str)
+void	error_befal(t_win_info *wininfo)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] >= 97 && str[i] <= 122)
-			str[i] = str[i] - 32;
-		i++;
-	}
+	ft_putstr_fd("!INPUT ERROR!\nUse ./fractol -h\n", 2);
+	free(wininfo->name);
+	exit(0);
 }
 
 int	checkstr(char *str)
@@ -50,7 +44,7 @@ int	mapchecker(char *str)
 
 int	error_main(int argc, char **argv)
 {
-	if (argc != 2)
+	if (argc < 2)
 		return (0);
 	strup(argv[1]);
 	if (checkstr(argv[1]) != 1)

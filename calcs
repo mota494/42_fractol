@@ -1,9 +1,0 @@
-Mandelbrot
-
-c_r = the beggining of the real part
-c_i = the beggining of the imaginary part
-r = real part
-i = imaginary part
-
-r = (r * r) - (i * i) + c_r;
-i = (2 * r * i) + c_i;

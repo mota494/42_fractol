@@ -45,10 +45,12 @@ typedef	struct s_imginfo
 
 typedef struct s_winfo
 {
+    //USEROPTS
+	char		**flags;
+    	char		*name;
     //MLX
 	void		*mlx_ptr;
 	void		*win_ptr;
-	char		*name;
     //Fractals
 	int         c_x;
 	int 		c_y;
@@ -68,10 +70,14 @@ int		win_init(t_win_info *wininfo);
 int		handle_input(int keysym, t_win_info *wininfo);
 int		kill_window( t_win_info *wininfo);
 void	setup_hook(t_win_info *wininfo);
+/*flags.c*/
+void	flag_check(int argc, char **argv, t_win_info *wininfo);
+int	check_input(int argc, char **argv);
 /*draw.c*/
 int		color(int t, int r, int g, int b);
 void    fs_pixel_put(t_win_info *wininfo, int x, int y, int color);
 /*error_check.c*/
+void	error_befal(t_win_info *wininfo);
 int 	error_main(int argc, char **argv);
 int		checkstr(char *str);
 /*fractals.c*/
@@ -80,6 +86,7 @@ void    mandelbrot_start(t_win_info *wininfo);
 void    draw_mandelbrot(t_win_info *wininfo);
 /*utils.c*/
 void        var_init(t_win_info *wininfo);
+void	strup(char *str);
 /*math.c*/
 double  scale(double num, double n_mi, double n_ma, double o_mi, double o_ma);
 #endif

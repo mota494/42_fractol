@@ -17,6 +17,19 @@ long double	sum(double num1, double num2)
 	return (num1 + num2);
 }
 
+void	strup(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] >= 97 && str[i] <= 122)
+			str[i] = str[i] - 32;
+		i++;
+	}
+}
+
 void	var_init(t_win_info *wininfo)
 {
     wininfo->mlx_ptr = NULL;
