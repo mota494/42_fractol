@@ -17,6 +17,13 @@ long double	sum(double num1, double num2)
 	return (num1 + num2);
 }
 
+int	ft_isspace(int c)
+{
+	if ((c >= 9 && c <= 13) || (c == 32) || ft_isprint(c) == 0)
+		return (1);
+	return (0);
+}
+
 void	strup(char *str)
 {
 	int	i;

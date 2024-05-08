@@ -19,6 +19,12 @@ void	error_befal(t_win_info *wininfo)
 	exit(0);
 }
 
+void	error_aftal(t_win_info *wininfo)
+{
+	ft_putstr_fd("!INPUT ERROR!\nUse ./fractol -h\n", 2);
+	kill_window(wininfo);
+}
+
 int	checkstr(char *str)
 {
 	int	i;
@@ -33,7 +39,7 @@ int	checkstr(char *str)
 	return (1);
 }
 
-int	mapchecker(char *str)
+int	map_checker(char *str)
 {
 	if (ft_strcmp("MANDELBROT", str) == 1)
 		return (1);
@@ -49,7 +55,7 @@ int	error_main(int argc, char **argv)
 	strup(argv[1]);
 	if (checkstr(argv[1]) != 1)
 		return (0);
-	if (mapchecker(argv[1]) != 1)
+	if (map_checker(argv[1]) != 1)
 		return (0);
 	return (1);
 }

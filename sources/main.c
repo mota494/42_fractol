@@ -66,7 +66,6 @@ int	main(int argc, char **argv)
 
 	wininfo.name = ft_calloc(1, 1);
 	flag_check(argc, argv, &wininfo);
-	wininfo.name = alocpy(wininfo.name, argv[1]);
 	var_init(&wininfo);
 	if (win_init(&wininfo) == 0)
 		return (0);

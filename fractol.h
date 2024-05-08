@@ -61,6 +61,12 @@ typedef struct s_winfo
 	t_imginfo	img;
 }			t_win_info;
 
+typedef struct s_flag_ingo
+{
+	char	flag[2];
+	char	*argumment;
+}			t_flags;
+
 /***********************************************/
 /*					Functions				   */
 /***********************************************/
@@ -78,7 +84,9 @@ int		color(int t, int r, int g, int b);
 void    fs_pixel_put(t_win_info *wininfo, int x, int y, int color);
 /*error_check.c*/
 void	error_befal(t_win_info *wininfo);
+void	error_aftal(t_win_info *wininfo);
 int 	error_main(int argc, char **argv);
+int	map_checker(char *str);
 int		checkstr(char *str);
 /*fractals.c*/
 int		maps_select(t_win_info *wininfo);
@@ -87,6 +95,7 @@ void    draw_mandelbrot(t_win_info *wininfo);
 /*utils.c*/
 void        var_init(t_win_info *wininfo);
 void	strup(char *str);
+int	ft_isspace(int c);
 /*math.c*/
 double  scale(double num, double n_mi, double n_ma, double o_mi, double o_ma);
 #endif
