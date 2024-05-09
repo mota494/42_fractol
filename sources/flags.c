@@ -45,7 +45,6 @@ void	flag_check(int argc, char **argv, t_win_info *wininfo)
 		flag_verify(argv[i], wininfo);
 		i++;
 	}
-	flag_insert(wininfo);
 	if (map_checker(argv[argc - 1]) != 1)
 		error_befal(wininfo);
 	wininfo->name = alocpy(wininfo->name, argv[argc - 1]);

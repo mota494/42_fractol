@@ -17,6 +17,8 @@ int		ft_strcmp(char *tocomp, char *target)
 	unsigned long i;
 
 	i = 0;
+	if (ft_strlen(target) <= 0)
+		return (0);
 	while (tocomp[i] && target[i] && tocomp[i] == target[i])
 		i++;
 	if (i == ft_strlen(target))
