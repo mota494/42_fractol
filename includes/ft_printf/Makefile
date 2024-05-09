@@ -1,17 +1,19 @@
 NAME = libftprintf.a
 CC= cc -g
-FLAGS= -Wall -Wextra -Werror
+CFLAGS= -Wall -Wextra -Werror
 SRC= ft_flags.c ft_printf.c ft_printhexa.c ft_printint.c ft_printpointer.c ft_putchar.c ft_putnbr.c ft_putstr.c
 RM = rm -rf
 OBJS=$(SRC:.c=.o)
-COLOR	= $(shell tput setaf 106)
-D 		= $(shell tput sgr0)
+GREEN=\e[38;5;118m
+END= $<\e[0m
 
-all: $(NAME) newline
+all: start $(NAME)
+
+start:
+	echo "$(GREEN)[COMPILING FT_PRINTF WITH $(CFLAGS)]$(END)"
 
 %.o : %.c
-	echo -n "$(COLOR)████$(D)";
-	$(CC) $(FLAGS) -c $*.c -o $*.o
+	$(CC) $(CFLAGS) -c $*.c -o $*.o
 
 $(NAME): $(OBJS)
 	ar rc $(NAME) $(OBJS)
@@ -21,9 +23,5 @@ clean:
 
 fclean:
 	$(RM) $(OBJS) $(NAME)
-
-newline:
-	echo -n "$(COLOR)██$(D)";
-	echo "\n"
 
 re: fclean all
