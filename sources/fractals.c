@@ -54,6 +54,7 @@ void    draw_mandelbrot(t_win_info *wininfo)
         if (wininfo->x * wininfo->x + wininfo->y * wininfo->y >=__DBL_MAX__)
             break;
     }
+    wininfo->times_it = i;
     if (i == wininfo->max_iter)
         fs_pixel_put(wininfo, wininfo->c_x, wininfo->c_y, 0x000000);
     else

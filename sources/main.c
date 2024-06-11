@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../fractol.h"
+#include <X11/X.h>
 
 int	kill_window(t_win_info *wininfo)
 {
@@ -55,6 +56,7 @@ int	win_init(t_win_info *wininfo)
 void	setup_hook(t_win_info *wininfo)
 {
 	mlx_hook(wininfo->win_ptr, KeyPress, KeyPressMask, &handle_input, wininfo);
+	mlx_mouse_hook(wininfo->win_ptr, mouse_hook, wininfo);
 	mlx_hook(wininfo->win_ptr, 17, 0, &kill_window, wininfo);
 	maps_select(wininfo);
 	mlx_loop(wininfo->mlx_ptr);

@@ -14,14 +14,14 @@
 
 void	error_befal(t_win_info *wininfo)
 {
-	ft_putstr_fd("!INPUT ERROR!\nUse ./fractol -h\n", 2);
+	ft_putstr_fd("!INPUT ERROR!\n", 2);
 	free(wininfo->name);
 	exit(0);
 }
 
 void	error_aftal(t_win_info *wininfo)
 {
-	ft_putstr_fd("!INPUT ERROR!\nUse ./fractol -h\n", 2);
+	ft_putstr_fd("!INPUT ERROR!\n", 2);
 	kill_window(wininfo);
 }
 

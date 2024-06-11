@@ -12,16 +12,16 @@
 
 #include "../fractol.h"
 
+
 int	choice_color(t_win_info *wininfo)
 {
-	int r;
-	int g;
-	int b;
+	int i;
 
-	r = (wininfo->c_x/12)*3;
-	g = 0;
-	b = (wininfo->c_y/12)*3;
-	return (color(255, r, g, b));
+	i = wininfo->times_it;
+	if (i > 25)
+		return (color(255, 150, 170, 250));
+	else
+		return (color(255, i * 2, 0, i * 4));
 }
 
 int	color(int t, int r, int g, int b)

@@ -57,15 +57,11 @@ typedef struct s_winfo
     double      x;
     double      y;
 	double		max_iter;
-    //IMG
+    int	times_it;
+	double	zoom;
+	//IMG
 	t_imginfo	img;
 }			t_win_info;
-
-typedef struct s_flag_ingo
-{
-	char	flag[2];
-	char	*argumment;
-}			t_flags;
 
 /***********************************************/
 /*					Functions				   */
@@ -99,4 +95,6 @@ void	strup(char *str);
 int	ft_isspace(int c);
 /*math.c*/
 double  scale(double num, double n_mi, double n_ma, double o_mi, double o_ma);
+/*zoom.c*/
+int	mouse_hook(int mousesym, int x, int y, t_win_info *wininfo);
 #endif
