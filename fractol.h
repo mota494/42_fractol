@@ -80,6 +80,7 @@ void	setup_hook(t_win_info *wininfo);
 void	flag_check(int argc, char **argv, t_win_info *wininfo);
 int	check_input(int argc, char **argv);
 /*draw.c*/
+int	choice_color(t_win_info *wininfo);
 int		color(int t, int r, int g, int b);
 void    fs_pixel_put(t_win_info *wininfo, int x, int y, int color);
 /*error_check.c*/

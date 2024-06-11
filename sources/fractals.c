@@ -57,5 +57,5 @@ void    draw_mandelbrot(t_win_info *wininfo)
     if (i == wininfo->max_iter)
         fs_pixel_put(wininfo, wininfo->c_x, wininfo->c_y, 0x000000);
     else
-        fs_pixel_put(wininfo, wininfo->c_x, wininfo->c_y, 0xffffff);
+        fs_pixel_put(wininfo, wininfo->c_x, wininfo->c_y, choice_color(wininfo));
 }
