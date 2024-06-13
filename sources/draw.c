@@ -12,7 +12,6 @@
 
 #include "../fractol.h"
 
-
 int	choice_color(t_win_info *wininfo)
 {
 	int i;

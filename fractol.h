@@ -93,8 +93,10 @@ void    draw_mandelbrot(t_win_info *wininfo);
 void        var_init(t_win_info *wininfo);
 void	strup(char *str);
 int	ft_isspace(int c);
+void	refresh(t_win_info *wininfo);
 /*math.c*/
 double  scale(double num, double n_mi, double n_ma, double o_mi, double o_ma);
 /*zoom.c*/
 int	mouse_hook(int mousesym, int x, int y, t_win_info *wininfo);
+//void	movement(int keysym, t_win_info *wininfo);
 #endif

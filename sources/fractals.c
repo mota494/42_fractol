@@ -32,6 +32,7 @@ void    mandelbrot_start(t_win_info *wininfo)
         wininfo->c_x++;
     }
     mlx_put_image_to_window(wininfo->mlx_ptr, wininfo->win_ptr, wininfo->img.img_ptr, 0, 0);
+    refresh(wininfo);
 }
 
 void    draw_mandelbrot(t_win_info *wininfo)

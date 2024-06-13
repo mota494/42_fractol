@@ -15,6 +15,8 @@
 void	error_befal(t_win_info *wininfo)
 {
 	ft_putstr_fd("!INPUT ERROR!\n", 2);
+	ft_putstr_fd("Available sets include:\n", 2);
+	ft_putstr_fd("./fractol Mandelbrot\n./fractol Julia\n", 2);
 	free(wininfo->name);
 	exit(0);
 }
@@ -22,6 +24,8 @@ void	error_befal(t_win_info *wininfo)
 void	error_aftal(t_win_info *wininfo)
 {
 	ft_putstr_fd("!INPUT ERROR!\n", 2);
+	ft_putstr_fd("Available sets include:\n", 2);
+	ft_putstr_fd("./fractol Mandelbrot\n./fractol Julia\n", 2);
 	kill_window(wininfo);
 }
 

@@ -50,3 +50,11 @@ void	var_init(t_win_info *wininfo)
 	wininfo->max_iter = 42;
 	wininfo->zoom = 0;
 }
+
+void	refresh(t_win_info *wininfo)
+{
+	wininfo->c_y = 0;
+	wininfo->c_x = 0;
+	wininfo->x = 0;
+	wininfo->y = 0;
+}
