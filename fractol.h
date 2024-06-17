@@ -46,22 +46,25 @@ typedef	struct s_imginfo
 typedef struct s_winfo
 {
     //USEROPTS
-	char		**flags;
-    	char		*name;
+    char	**flags;
+    char	*name;
     //MLX
-	void		*mlx_ptr;
-	void		*win_ptr;
+    void	*mlx_ptr;
+    void	*win_ptr;
     //Fractals
-	int         c_x;
-	int 		c_y;
+    int         c_x;
+    int 	c_y;
     double      x;
     double      y;
-	double		max_iter;
-    int	times_it;
-	double	zoom;
-	//IMG
-	t_imginfo	img;
-}			t_win_info;
+    double	max_iter;
+    int		times_it;
+    //Movement
+    double	zoom;
+    double	move_x;
+    double	move_y;
+    //IMG
+    t_imginfo	img;
+}		t_win_info;
 
 /***********************************************/
 /*					Functions				   */
@@ -90,13 +93,15 @@ int		maps_select(t_win_info *wininfo);
 void    mandelbrot_start(t_win_info *wininfo);
 void    draw_mandelbrot(t_win_info *wininfo);
 /*utils.c*/
-void        var_init(t_win_info *wininfo);
+void	var_init(t_win_info *wininfo);
 void	strup(char *str);
 int	ft_isspace(int c);
 void	refresh(t_win_info *wininfo);
+/*utils2.c*/
+int	arrow_check(int keysym);
 /*math.c*/
 double  scale(double num, double n_mi, double n_ma, double o_mi, double o_ma);
 /*zoom.c*/
 int	mouse_hook(int mousesym, int x, int y, t_win_info *wininfo);
-//void	movement(int keysym, t_win_info *wininfo);
+void	movement(int keysym, t_win_info *wininfo);
 #endif

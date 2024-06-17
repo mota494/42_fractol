@@ -45,8 +45,8 @@ void    draw_mandelbrot(t_win_info *wininfo)
     i = 0;
     wininfo->x = 0;
     wininfo->y = 0;
-    x = scale(wininfo->c_x, -2, 2, 0, X);
-    y = scale(wininfo->c_y, -2, 2, 0, Y);
+    x = scale(wininfo->c_x, -2 + wininfo->move_x, 2 + wininfo->move_x, 0, X);
+    y = scale(wininfo->c_y, -2 + wininfo->move_y, 2 + wininfo->move_y, 0, Y);
     while (++i < wininfo->max_iter)
     {
         x_temp = (wininfo->x * wininfo->x) - (wininfo->y * wininfo->y) + x;

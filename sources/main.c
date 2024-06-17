@@ -28,6 +28,8 @@ int	handle_input(int keysym, t_win_info *wininfo)
 {
 	if (keysym == XK_Escape)
 		kill_window(wininfo);
+	else if (arrow_check(keysym) == 1)
+		movement(keysym, wininfo);
 	return (0);
 }
 
