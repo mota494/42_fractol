@@ -51,6 +51,13 @@ void	var_init(t_win_info *wininfo)
 	wininfo->zoom = 0;
 	wininfo->move_x = 0;
 	wininfo->move_y = 0;
+	wininfo->color.red_val = 150;
+	wininfo->color.gre_val = 170;
+	wininfo->color.blu_val = 250;
+	wininfo->color.red_mul = 2;
+	wininfo->color.gre_mul = 0;
+	wininfo->color.blu_mul = 4;
+	wininfo->pressed_h = 1;
 }
 
 void	refresh(t_win_info *wininfo)

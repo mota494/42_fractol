@@ -43,6 +43,16 @@ typedef	struct s_imginfo
 
 }		t_imginfo;
 
+typedef	struct s_color
+{
+	int red_val;
+	int gre_val;
+	int blu_val;
+	int red_mul;
+	int gre_mul;
+	int blu_mul;
+}		t_color;
+
 typedef struct s_winfo
 {
     //USEROPTS
@@ -64,6 +74,9 @@ typedef struct s_winfo
     double	move_y;
     //IMG
     t_imginfo	img;
+    //Colors
+    t_color	color;
+    int		pressed_h;
 }		t_win_info;
 
 /***********************************************/
@@ -104,4 +117,7 @@ double  scale(double num, double n_mi, double n_ma, double o_mi, double o_ma);
 /*zoom.c*/
 int	mouse_hook(int mousesym, int x, int y, t_win_info *wininfo);
 void	movement(int keysym, t_win_info *wininfo);
+void	key_zoom(int keysym, t_win_info *wininfo);
+/*command.c*/
+void	color_cycle(int keysym, t_win_info *wininfo);
 #endif

@@ -30,6 +30,14 @@ int	handle_input(int keysym, t_win_info *wininfo)
 		kill_window(wininfo);
 	else if (arrow_check(keysym) == 1)
 		movement(keysym, wininfo);
+	else if (keysym == 65451)
+		key_zoom(keysym, wininfo);
+	else if (keysym == 65453)
+		key_zoom(keysym, wininfo);
+	else if (keysym == 104 || keysym == 106 || keysym == 107)
+		color_cycle(keysym, wininfo);
+	else
+		printf("%d \n", keysym);
 	return (0);
 }
 

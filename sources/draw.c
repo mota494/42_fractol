@@ -18,9 +18,13 @@ int	choice_color(t_win_info *wininfo)
 
 	i = wininfo->times_it;
 	if (i > 25)
-		return (color(255, 150, 170, 250));
+		return (color(255, wininfo->color.red_val, 
+					wininfo->color.gre_val, 
+					wininfo->color.blu_val));
 	else
-		return (color(255, i * 2, 0, i * 4));
+		return (color(255, i * wininfo->color.red_mul, 
+					i * wininfo->color.gre_mul, 
+					i * wininfo->color.blu_mul));
 }
 
 int	color(int t, int r, int g, int b)
