@@ -15,13 +15,13 @@
 
 int	kill_window(t_win_info *wininfo)
 {
-    mlx_destroy_image(wininfo->mlx_ptr, wininfo->img.img_ptr);
+	mlx_destroy_image(wininfo->mlx_ptr, wininfo->img.img_ptr);
 	mlx_destroy_window(wininfo->mlx_ptr, wininfo->win_ptr);
 	mlx_destroy_display(wininfo->mlx_ptr);
 	free(wininfo->mlx_ptr);
 	free(wininfo->name);
 	exit(0);
-    return (0);
+	return (0);
 }
 
 int	handle_input(int keysym, t_win_info *wininfo)
@@ -36,8 +36,6 @@ int	handle_input(int keysym, t_win_info *wininfo)
 		key_zoom(keysym, wininfo);
 	else if (keysym == 104 || keysym == 106 || keysym == 107)
 		color_cycle(keysym, wininfo);
-	else
-		printf("%d \n", keysym);
 	return (0);
 }
 
@@ -65,7 +63,7 @@ int	win_init(t_win_info *wininfo)
 
 void	setup_hook(t_win_info *wininfo)
 {
-	mlx_hook(wininfo->win_ptr, KeyPress, KeyPressMask, &handle_input, wininfo);
+	mlx_hook(wininfo->win_ptr, KeyRelease, KeyReleaseMask, &handle_input, wininfo);
 	mlx_mouse_hook(wininfo->win_ptr, mouse_hook, wininfo);
 	mlx_hook(wininfo->win_ptr, 17, 0, &kill_window, wininfo);
 	maps_select(wininfo);

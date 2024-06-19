@@ -77,6 +77,9 @@ typedef struct s_winfo
     //Colors
     t_color	color;
     int		pressed_h;
+    //Mouse
+    int		mouse_x;
+    int		mouse_y;
 }		t_win_info;
 
 /***********************************************/
