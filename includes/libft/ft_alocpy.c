@@ -15,15 +15,15 @@
 
 char	*alocpy(char *dest, char *src)
 {
-	size_t 	len;
+	size_t	len;
 	size_t	i;
-	char *newstr;
+	char	*newstr;
 
 	i = 0;
 	free(dest);
 	len = ft_strlen(src);
 	newstr = malloc(len + 1);
-	while(i < len)
+	while (i < len)
 	{
 		newstr[i] = src[i];
 		i++;

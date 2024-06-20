@@ -12,9 +12,9 @@
 
 #include "libft.h"
 
-int		ft_strcmp(char *tocomp, char *target)
+int	ft_strcmp(char *tocomp, char *target)
 {
-	unsigned long i;
+	unsigned long	i;
 
 	i = 0;
 	if (ft_strlen(target) <= 0)
