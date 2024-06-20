@@ -36,6 +36,10 @@ int	handle_input(int keysym, t_win_info *wininfo)
 		key_zoom(keysym, wininfo);
 	else if (keysym == 104 || keysym == 106 || keysym == 107)
 		color_cycle(keysym, wininfo);
+	else if (keysym == 114)
+		restart_mandelbrot(wininfo);
+	else if (keysym == 101)
+		mega_render(wininfo);
 	return (0);
 }
 

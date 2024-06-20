@@ -76,6 +76,7 @@ typedef struct s_winfo
 	// Colors
 	t_color		color;
 	int			pressed_h;
+	int			pressed_e;
 	// Mouse
 	int			mouse_x;
 	int			mouse_y;
@@ -114,6 +115,7 @@ int				ft_isspace(int c);
 void			refresh(t_win_info *wininfo);
 /*utils2.c*/
 int				arrow_check(int keysym);
+void			restart_mandelbrot(t_win_info *wininfo);
 /*math.c*/
 double			scale(double num, double n_mi, double n_ma, double o_mi);
 /*zoom.c*/
@@ -122,4 +124,5 @@ void			movement(int keysym, t_win_info *wininfo);
 void			key_zoom(int keysym, t_win_info *wininfo);
 /*command.c*/
 void			color_cycle(int keysym, t_win_info *wininfo);
+void			mega_render(t_win_info *wininfo);
 #endif

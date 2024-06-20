@@ -58,6 +58,7 @@ void	var_init(t_win_info *wininfo)
 	wininfo->color.gre_mul = 0;
 	wininfo->color.blu_mul = 4;
 	wininfo->pressed_h = 1;
+	wininfo->pressed_e = 0;
 }
 
 void	refresh(t_win_info *wininfo)
