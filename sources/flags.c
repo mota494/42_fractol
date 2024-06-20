@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   flags.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mloureir <mloureir@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/18 16:15:47 by mloureir          #+#    #+#             */
+/*   Updated: 2024/06/20 13:46:47 by mloureir         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../fractol.h"
 
 void	flag_insert(t_win_info *wininfo)
@@ -22,7 +34,7 @@ int	flags_lib(char *str)
 
 void	flag_verify(char *str, t_win_info *wininfo)
 {
-	static int tick;
+	static int	tick;
 
 	if (flags_lib(str) == 1)
 		tick = 1;
@@ -35,7 +47,7 @@ void	flag_verify(char *str, t_win_info *wininfo)
 void	flag_check(int argc, char **argv, t_win_info *wininfo)
 {
 	int	i;
-	
+
 	i = 1;
 	if (check_input(argc, argv) == 0 || argc < 2)
 		error_befal(wininfo);
@@ -61,7 +73,7 @@ int	check_input(int argc, char **argv)
 		y = 0;
 		while (argv[i][y])
 		{
-			if (argv[i][y] == '-' 
+			if (argv[i][y] == '-'
 					&& ft_isalpha(argv[i][y + 1]) != 1)
 				return (0);
 			else if (argv[i][y] == '-')

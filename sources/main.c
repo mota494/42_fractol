@@ -6,7 +6,7 @@
 /*   By: mloureir <mloureir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 12:38:16 by mloureir          #+#    #+#             */
-/*   Updated: 2024/05/02 14:03:17 by mloureir         ###   ########.fr       */
+/*   Updated: 2024/06/20 14:14:48 by mloureir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,15 +55,13 @@ int	win_init(t_win_info *wininfo)
 	}
 	wininfo->img.img_ptr = mlx_new_image(wininfo->mlx_ptr, X, Y);
 	wininfo->img.pix_ptr = mlx_get_data_addr(wininfo->img.img_ptr,
-                                             &wininfo->img.bpp,
-                                             &wininfo->img.line_len,
-                                             &wininfo->img.endian);
+			&wininfo->img.bpp, &wininfo->img.line_len, &wininfo->img.endian);
 	return (1);
 }
 
 void	setup_hook(t_win_info *wininfo)
 {
-	mlx_hook(wininfo->win_ptr, KeyRelease, KeyReleaseMask, &handle_input, wininfo);
+	mlx_hook(wininfo->win_ptr, 3, KeyReleaseMask, &handle_input, wininfo);
 	mlx_mouse_hook(wininfo->win_ptr, mouse_hook, wininfo);
 	mlx_hook(wininfo->win_ptr, 17, 0, &kill_window, wininfo);
 	maps_select(wininfo);

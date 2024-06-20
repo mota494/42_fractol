@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   command.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mloureir <mloureir@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/18 17:10:41 by mloureir          #+#    #+#             */
+/*   Updated: 2024/06/20 14:09:24 by mloureir         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../fractol.h"
 
 void	color_reset(t_win_info *wininfo)
@@ -20,7 +32,7 @@ void	color_reset(t_win_info *wininfo)
 		wininfo->color.red_mul = 255;
 		wininfo->color.gre_mul = 255;
 		wininfo->color.blu_mul = 255;
-		wininfo->pressed_h = 1;	
+		wininfo->pressed_h = 1;
 	}
 }
 
@@ -46,5 +58,4 @@ void	color_cycle(int keysym, t_win_info *wininfo)
 	}
 	else if (keysym == 104)
 		color_reset(wininfo);
-	maps_select(wininfo);
 }

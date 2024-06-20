@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   zoom.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mloureir <mloureir@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/20 14:09:33 by mloureir          #+#    #+#             */
+/*   Updated: 2024/06/20 14:18:40 by mloureir         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../fractol.h"
 
 int	mouse_hook(int mousesym, int x, int y, t_win_info *wininfo)
@@ -8,20 +20,18 @@ int	mouse_hook(int mousesym, int x, int y, t_win_info *wininfo)
 		wininfo->zoom *= 0.95;
 	else if (mousesym == 5)
 		wininfo->zoom *= 1.05;
-	maps_select(wininfo);
 	return (0);
 }
 
 void	key_zoom(int keysym, t_win_info *wininfo)
 {
-	double zoom;
+	double	zoom;
 
 	zoom = 0.2;
 	if (keysym == 65451)
 		wininfo->zoom = wininfo->zoom + zoom;
 	else if (keysym == 65453)
 		wininfo->zoom = wininfo->zoom - zoom;
-	maps_select(wininfo);
 }
 
 void	movement(int keysym, t_win_info *wininfo)
@@ -34,5 +44,4 @@ void	movement(int keysym, t_win_info *wininfo)
 		wininfo->move_y -= 0.08 * wininfo->zoom;
 	else if (keysym == 65364)
 		wininfo->move_y += 0.08 * wininfo->zoom;
-	maps_select(wininfo);
 }
