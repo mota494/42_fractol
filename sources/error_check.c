@@ -48,18 +48,19 @@ int	map_checker(char *str)
 	if (ft_strcmp("MANDELBROT", str) == 1)
 		return (1);
 	if (ft_strcmp("JULIA", str) == 1)
-		return (1);
+		return (2);
 	return (0);
 }
 
 int	error_main(int argc, char **argv)
 {
-	if (argc < 2)
-		return (0);
+	int	map_id;
+
 	strup(argv[1]);
-	if (checkstr(argv[1]) != 1)
+	map_id = map_checker(argv[1]);
+	if (map_id < 1)
 		return (0);
-	if (map_checker(argv[1]) != 1)
+	if (map_id == 1 && argc > 2)
 		return (0);
 	return (1);
 }

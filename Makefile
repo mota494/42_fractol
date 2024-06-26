@@ -7,7 +7,7 @@ MLXFLAGS = -L/usr/X11R6/lib -lX11 -lXext -lm
 MLX = mlx/libmlx_Linux.a
 LIBFT = includes/libft/libft.a
 PRINTF = includes/ft_printf/libftprintf.a
-SRC = sources/command.c sources/main.c sources/draw.c sources/error_check.c sources/fractals.c sources/utils.c sources/utils2.c sources/math.c sources/flags.c sources/zoom.c
+SRC = sources/command.c sources/main.c sources/draw.c sources/error_check.c sources/fractals.c sources/utils.c sources/utils2.c sources/math.c sources/zoom.c
 # Commands
 RM = rm -rf
 OBJ = $(SRC:.c=.o)

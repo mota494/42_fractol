@@ -91,9 +91,6 @@ int				win_init(t_win_info *wininfo);
 int				handle_input(int keysym, t_win_info *wininfo);
 int				kill_window(t_win_info *wininfo);
 void			setup_hook(t_win_info *wininfo);
-/*flags.c*/
-void			flag_check(int argc, char **argv, t_win_info *wininfo);
-int				check_input(int argc, char **argv);
 /*draw.c*/
 int				choice_color(t_win_info *wininfo);
 int				color(int t, int r, int g, int b);
