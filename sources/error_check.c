@@ -46,21 +46,19 @@ int	checkstr(char *str)
 int	map_checker(char *str)
 {
 	if (ft_strcmp("MANDELBROT", str) == 1)
-		return (1);
+		return (MANDELBROT);
 	if (ft_strcmp("JULIA", str) == 1)
-		return (2);
+		return (JULIA);
 	return (0);
 }
 
-int	error_main(int argc, char **argv)
+int	error_main(int argc, char **argv, t_win_info *wininfo)
 {
-	int	map_id;
-
 	strup(argv[1]);
-	map_id = map_checker(argv[1]);
-	if (map_id < 1)
+	wininfo->map_id = map_checker(argv[1]);
+	if (wininfo->map_id < 1)
 		return (0);
-	if (map_id == 1 && argc > 2)
+	if (wininfo->map_id == MANDELBROT && argc > 2)
 		return (0);
 	return (1);
 }

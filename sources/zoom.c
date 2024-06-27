@@ -25,13 +25,10 @@ int	mouse_hook(int mousesym, int x, int y, t_win_info *wininfo)
 
 void	key_zoom(int keysym, t_win_info *wininfo)
 {
-	double	zoom;
-
-	zoom = 0.2;
 	if (keysym == 65451)
-		wininfo->zoom = wininfo->zoom + zoom;
+		wininfo->zoom *= 0.95;
 	else if (keysym == 65453)
-		wininfo->zoom = wininfo->zoom - zoom;
+		wininfo->zoom *= 1.05;
 }
 
 void	movement(int keysym, t_win_info *wininfo)

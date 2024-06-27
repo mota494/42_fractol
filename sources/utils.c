@@ -45,6 +45,7 @@ void	var_init(t_win_info *wininfo)
 	wininfo->img.pix_ptr = NULL;
 	wininfo->c_x = 0;
 	wininfo->c_y = 0;
+	wininfo->map_id = 0;
 	wininfo->x = 0;
 	wininfo->y = 0;
 	wininfo->max_iter = 40;
