@@ -14,8 +14,10 @@
 
 int	maps_select(t_win_info *wininfo)
 {
-	if (ft_strcmp(wininfo->name, "MANDELBROT") == 1)
+	if (wininfo->map_id == MANDELBROT)
 		mlx_loop_hook(wininfo->mlx_ptr, mandelbrot_start, wininfo);
+	if (wininfo->map_id == JULIA)
+		mlx_loop_hook(wininfo->mlx_ptr, julia_start, wininfo);
 	return (0);
 }
 
@@ -58,18 +60,17 @@ int	julia_start(t_win_info *wininfo)
 void	draw_julia(t_win_info *wininfo)
 {
 	double	x_temp;
-	double	x;
-	double	y;
 
 	wininfo->times_it = 0;
-	wininfo->x = 0;
-	wininfo->y = 0;
-	x = (scale(wininfo->c_x, -2, 2, 0) * wininfo->zoom) + wininfo->move_x;
-	y = (scale(wininfo->c_y, -2, 2, 0) * wininfo->zoom) + wininfo->move_y;
+	wininfo->x = (scale(wininfo->c_x, -2, 2, 0) * wininfo->zoom)
+		+ wininfo->move_x;
+	wininfo->y = (scale(wininfo->c_y, -2, 2, 0) * wininfo->zoom)
+		+ wininfo->move_y;
 	while (++wininfo->times_it < wininfo->max_iter)
 	{
-		x_temp = (wininfo->x * wininfo->x) - (wininfo->y * wininfo->y) + x;
-		wininfo->y = (2.0 * wininfo->x * wininfo->y) + y;
+		x_temp = (wininfo->x * wininfo->x)
+			- (wininfo->y * wininfo->y) + wininfo->jul_x;
+		wininfo->y = (2.0 * wininfo->x * wininfo->y) + wininfo->jul_y;
 		wininfo->x = x_temp;
 		if (wininfo->x * wininfo->x + wininfo->y * wininfo->y >= __DBL_MAX__)
 			break ;
