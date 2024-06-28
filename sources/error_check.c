@@ -54,6 +54,8 @@ int	map_checker(char *str)
 
 int	error_main(int argc, char **argv, t_win_info *wininfo)
 {
+	if (argc < 2)
+		return (0);
 	strup(argv[1]);
 	wininfo->map_id = map_checker(argv[1]);
 	if (wininfo->map_id < 1)
