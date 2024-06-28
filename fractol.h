@@ -131,5 +131,5 @@ void			color_cycle(int keysym, t_win_info *wininfo);
 void			mega_render(t_win_info *wininfo);
 /*checkers.c*/
 int				julia_main(int argc, char **argv, t_win_info *wininfo);
-double				string_double(char *str);
+double			string_double(char *str);
 #endif
