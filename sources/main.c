@@ -82,17 +82,17 @@ int	main(int argc, char **argv)
 		error_befal(&wininfo);
 	if (wininfo.map_id == JULIA && argc > 2)
 	{
-		 if (julia_main(argc, argv, &wininfo) == 0)
-		 {
-			 error_befal(&wininfo);
-		 }
+		if (julia_main(argc, argv, &wininfo) == 0)
+		{
+			error_befal(&wininfo);
+		}
 	}
 	else if (wininfo.map_id == JULIA && argc == 2)
 	{
 		wininfo.jul_x = -0.5317;
 		wininfo.jul_y = -0.6149;
 	}
-	wininfo.name = alocpy(wininfo.name, argv[1]);	
+	wininfo.name = alocpy(wininfo.name, argv[1]);
 	if (win_init(&wininfo) == 0)
 		return (0);
 	setup_hook(&wininfo);
