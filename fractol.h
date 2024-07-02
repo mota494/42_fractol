@@ -82,6 +82,7 @@ typedef struct s_winfo
 	t_color		color;
 	int			pressed_h;
 	int			pressed_e;
+	int			pressed_m;
 	// Mouse
 	int			mouse_x;
 	int			mouse_y;
@@ -100,6 +101,7 @@ void			setup_hook(t_win_info *wininfo);
 int				choice_color(t_win_info *wininfo);
 int				color(int t, int r, int g, int b);
 void			fs_pixel_put(t_win_info *wininfo, int x, int y, int color);
+void			change_render(t_win_info *wininfo);
 /*error_check.c*/
 void			error_befal(t_win_info *wininfo);
 void			error_aftal(t_win_info *wininfo);
@@ -120,6 +122,7 @@ void			refresh(t_win_info *wininfo);
 /*utils2.c*/
 int				arrow_check(int keysym);
 void			restart_mandelbrot(t_win_info *wininfo);
+void			helper(void);
 /*math.c*/
 double			scale(double num, double n_mi, double n_ma, double o_mi);
 /*zoom.c*/

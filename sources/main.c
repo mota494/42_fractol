@@ -40,6 +40,8 @@ int	handle_input(int keysym, t_win_info *wininfo)
 		restart_mandelbrot(wininfo);
 	else if (keysym == 101)
 		mega_render(wininfo);
+	else if (keysym == 109)
+		change_render(wininfo);
 	return (0);
 }
 
@@ -95,6 +97,7 @@ int	main(int argc, char **argv)
 	wininfo.name = alocpy(wininfo.name, argv[1]);
 	if (win_init(&wininfo) == 0)
 		return (0);
+	helper();
 	setup_hook(&wininfo);
 	return (0);
 }
