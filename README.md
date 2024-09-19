@@ -16,6 +16,29 @@ Fract_ol, the first C graphical project that i developed and one of the least su
 
 <div align="center">
 
+# Compile and test
+
+</div>
+
+If you really want to compile and test this project you'll need to do some stuff before it.
+
+Firstly, this project *_DOESN'T_* work in any operating system except Linux, but even in Linux there's some libraries that need to be installed and this can be done through this simples command line:
+
+`sudo apt-get install gcc make xorg libxext-dev libbsd-dev`
+
+This will also only work on Debian based Linux distros
+
+After that's done
+
+```zsh
+git clone https://github.com/mota494/42_fractol.git
+cd 42_fractol
+make
+./fractol <fractal set>
+```
+
+<div align="center">
+
 # Minilibx and Fract_ol
 
 </div>
