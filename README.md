@@ -73,7 +73,8 @@ int	mandelbrot_start(t_win_info *wininfo)
 			wininfo->c_y++;
 		}
 		wininfo->c_x++;
-	}
+	}/*draw.c*/
+//I was very picky with the colors that i wanted to use and it's something that I spend way to much time dealing with but I ended up with a fairly simple function that cycles through the colors that i want and supports 3 modes, all white where everything is white except the fractal set, a gradiant mode where everything is a nice color grandiant except the fractal set and the default color mode which every point that's iterated X times is a defined color and everything else is a purple gradiant. On top of the three modes the user can press _J_ or _K_ on the keyboard to cycle different color palletes, this is done through a simple change of values that are later used o calculate which color should a pixel be
 	mlx_put_image_to_window(wininfo->mlx_ptr, wininfo->win_ptr,
 		wininfo->img.img_ptr, 0, 0);
 	refresh(wininfo);
@@ -107,7 +108,13 @@ void	draw_mandelbrot(t_win_info *wininfo)
 }
 
 /*draw.c*/
-//I was very picky with the colors that i wanted to use and it's something that I spend way to much time dealing with but I ended up with a fairly simple function that cycles through the colors that i want and supports 3 modes, all white where everything is white except the fractal set, a gradiant mode where everything is a nice color grandiant except the fractal set and the default color mode which every point that's iterated X times is a defined color and everything else is a purple gradiant. On top of the three modes the user can press _J_ or _K_ on the keyboard to cycle different color palletes, this is done through a simple change of values that are later used o calculate which color should a pixel be
+/*I was very picky with the colors that i wanted to use and it's something that I spend way to
+much time dealing with but I ended up with a fairly simple function that cycles through the colors
+that i want and supports 3 modes, all white where everything is white except the fractal set, a gradiant
+mode where everything is a nice color grandiant except the fractal set and the default color mode which every
+point that's iterated X times is a defined color and everything else is a purple gradiant. On top of the three
+modes the user can press _J_ or _K_ on the keyboard to cycle different color palletes, this is done through a
+simple change of values that are later used o calculate which color should a pixel be*/
 
 int	choice_color(t_win_info *wininfo)
 {
